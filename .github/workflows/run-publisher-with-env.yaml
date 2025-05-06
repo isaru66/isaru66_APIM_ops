@@ -15,6 +15,9 @@ on:
       API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH:
         required: true
         type: string
+      API_MANAGEMENT_SERVICE_NAME:
+        required: true
+        type: string
 
 env:
   apiops_release_version: v6.0.1.7
@@ -59,7 +62,7 @@ jobs:
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           AZURE_RESOURCE_GROUP_NAME: ${{ secrets.AZURE_RESOURCE_GROUP_NAME }}
-          API_MANAGEMENT_SERVICE_NAME: ${{ secrets.API_MANAGEMENT_SERVICE_NAME }}
+          API_MANAGEMENT_SERVICE_NAME: ${{ inputs.API_MANAGEMENT_SERVICE_NAME }}
           API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: ${{ GITHUB.WORKSPACE }}/${{ inputs.API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH }}
           COMMIT_ID: ${{ inputs.COMMIT_ID }}
         run: |
