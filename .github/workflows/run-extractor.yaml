@@ -23,6 +23,8 @@ on:
 env:
   apiops_release_version: v6.0.1.7
 
+permissions:
+  pull-requests: write
 jobs:
   extract:
     runs-on: ubuntu-latest
