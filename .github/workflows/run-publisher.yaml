@@ -25,9 +25,6 @@ on:
           - "rg-apim-test-apim-002"
           - "another-apim-service-name"
         default: "rg-apim-test-apim-002"
-        
-env:
-  API_MANAGEMENT_SERVICE_NAME: ${{ inputs.API_MANAGEMENT_SERVICE_NAME || 'rg-apim-test-apim-002' }} # Default value for pull_request events
 jobs:
   get-commit:
     runs-on: ubuntu-latest
@@ -47,7 +44,7 @@ jobs:
       API_MANAGEMENT_ENVIRONMENT: dev # change this to match the dev environment created in settings
       COMMIT_ID: ${{ needs.get-commit.outputs.commit_id }}
       API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts # change this to the artifacts folder
-      API_MANAGEMENT_SERVICE_NAME: ${{ github.env.API_MANAGEMENT_SERVICE_NAME }}
+      API_MANAGEMENT_SERVICE_NAME: ${{ inputs.API_MANAGEMENT_SERVICE_NAME || 'rg-apim-test-apim-002' }}
     secrets: inherit
 
   #Publish without Commit ID. Publishes all artifacts that reside in the artifacts forlder
@@ -58,7 +55,7 @@ jobs:
     with:
       API_MANAGEMENT_ENVIRONMENT: dev # change this to match the dev environment created in settings
       API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts # change this to the artifacts folder
-      API_MANAGEMENT_SERVICE_NAME: ${{ github.env.API_MANAGEMENT_SERVICE_NAME }}
+      API_MANAGEMENT_SERVICE_NAME: ${{ inputs.API_MANAGEMENT_SERVICE_NAME || 'rg-apim-test-apim-002' }}
     secrets: inherit
 
   # Push-Changes-To-APIM-Prod-With-Commit-ID:
@@ -70,7 +67,7 @@ jobs:
   #     CONFIGURATION_YAML_PATH: configuration.prod.yaml # make sure the file is available at the root
   #     API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts # change this to the artifacts folder
   #     COMMIT_ID: ${{ needs.get-commit.outputs.commit_id }}
-  #     API_MANAGEMENT_SERVICE_NAME: ${{ github.env.API_MANAGEMENT_SERVICE_NAME }}
+  #     API_MANAGEMENT_SERVICE_NAME: ${{ inputs.API_MANAGEMENT_SERVICE_NAME || 'rg-apim-test-apim-002' }}
   #   secrets: inherit
 
   # Push-Changes-To-APIM-Prod-Without-Commit-ID:
@@ -81,5 +78,5 @@ jobs:
   #     API_MANAGEMENT_ENVIRONMENT: prod # change this to match the prod environment created in settings
   #     CONFIGURATION_YAML_PATH: configuration.prod.yaml # make sure the file is available at the root
   #     API_MANAGEMENT_SERVICE_OUTPUT_FOLDER_PATH: apimartifacts # change this to the artifacts folder
-  #     API_MANAGEMENT_SERVICE_NAME: ${{ github.env.API_MANAGEMENT_SERVICE_NAME }}
+  #     API_MANAGEMENT_SERVICE_NAME: ${{ inputs.API_MANAGEMENT_SERVICE_NAME || 'rg-apim-test-apim-002' }}
   #   secrets: inherit
