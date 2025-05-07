@@ -5,7 +5,7 @@
     "apiRevisionDescription": "test",
     "authenticationSettings": {},
     "description": "",
-    "displayName": "httpbin v1",
+    "displayName": "httpbin v1.1",
     "protocols": [
       "https"
     ],
