@@ -24,6 +24,7 @@ on:
         options:
           - "rg-apim-test-apim-002"
           - "another-apim-service-name"
+        default: "rg-apim-test-apim-002"
 
 jobs:
   get-commit:
