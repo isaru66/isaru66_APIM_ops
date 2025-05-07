@@ -5,7 +5,7 @@
     "authenticationSettings": {},
     "description": "",
     "isCurrent": true,
-    "displayName": "httpbin",
+    "displayName": "httpbin v1",
     "protocols": [
       "https"
     ],
