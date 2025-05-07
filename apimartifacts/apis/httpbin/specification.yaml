@@ -9,6 +9,7 @@ paths:
   /anything:
     get:
       summary: anything
+      description: anything
       operationId: anything
       responses:
         '200':
