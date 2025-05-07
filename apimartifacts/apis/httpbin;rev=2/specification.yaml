@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: httpbin
+  title: httpbin v1
   description: ''
   version: '1.0'
 servers:

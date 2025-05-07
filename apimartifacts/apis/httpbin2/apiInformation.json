@@ -1,11 +1,11 @@
 {
   "properties": {
-    "path": "",
+    "path": "httpbin2",
     "apiRevision": "1",
     "authenticationSettings": {},
     "description": "",
     "isCurrent": true,
-    "displayName": "httpbin v1",
+    "displayName": "httpbin2",
     "protocols": [
       "https"
     ],

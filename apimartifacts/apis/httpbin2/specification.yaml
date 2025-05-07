@@ -1,15 +1,14 @@
 openapi: 3.0.1
 info:
-  title: httpbin v1
+  title: httpbin2
   description: ''
   version: '1.0'
 servers:
-  - url: https://rg-apim-test-apim-001.azure-api.net
+  - url: https://rg-apim-test-apim-001.azure-api.net/httpbin2
 paths:
   /anything:
     get:
       summary: anything
-      description: anything
       operationId: anything
       responses:
         '200':
